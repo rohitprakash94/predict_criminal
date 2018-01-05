@@ -16,7 +16,7 @@ PERID_test_dataset = test_dataset.loc[:,"PERID":"PERID"]
 
 svc = svm.SVC()
 svc.fit(x_dataset,y_dataset.values.ravel())
-pred = lr.predict(x_test_dataset)
+pred = svc.predict(x_test_dataset)
 pred = {'Criminal':pred}
 pred = pd.DataFrame(pred)
 result = pd.concat([PERID_test_dataset,pred], axis=1)
